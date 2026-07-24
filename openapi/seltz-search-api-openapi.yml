@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Seltz answer search API
+  description: 'REST API for the Seltz platform: context retrieval (`/v1/search`) and RAG answers (`/v1/answer`).'
+  contact:
+    name: Seltz API Support
+    url: https://seltz.ai/contact
+  license:
+    name: Seltz Terms of Use
+    url: https://seltz.ai/terms
+  version: 1.3.0
+servers:
+- url: https://api.seltz.ai
+  description: Seltz API
+tags:
+- name: search
+  description: Search operations
+paths:
+  /v1/search:
+    post:
+      tags:
+      - search
+      summary: Search the web for relevant context
+      operationId: search
+      parameters:
+      - name: x-api-key
+        in: header
+        description: 'Seltz API key: https://console.seltz.ai/api-keys'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            example:
+              query: How much is the fish?
+        required: true
+      responses:
+        '200':
+          description: Search completed. Returns matched documents.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: Missing or malformed request fields.
+        '401':
+          description: Invalid or missing API key.
+        '404':
+          description: Endpoint not found.
+        '429':
+          description: Rate limit exceeded. Wait before retrying.
+        '500':
+          description: Unexpected server error.
+components:
+  schemas:
+    SearchResponse:
+      type: object
+      description: Search response
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+          description: Documents that are most relevant to the query
+          default: []
+    SearchRequest:
+      type: object
+      description: Search request
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: API_KEY to access the service
+          default: null
+        exclude_domains:
+          type: array
+          items:
+            type: string
+          description: Exclude results from these domains
+          default: []
+        from_date:
+          type:
+          - string
+          - 'null'
+          description: Only include results published on or after this date (ISO 8601, e.g. "2025-10-28")
+          default: null
+        include_domains:
+          type: array
+          items:
+            type: string
+          description: Include only results from these domains (e.g., \["google.com", "example.com"\])
+          default: []
+        max_results:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: maximum number of items to return, default to 10
+          default: null
+          minimum: 0
+        query:
+          type: string
+          description: The search query, we suggest to keep it as short as possible to improve performance
+          default: ''
+        scope:
+          type:
+          - string
+          - 'null'
+          description: 'Limits the search results to a specific vertical, content category, or data set
+
+
+            Available options:
+
+
+            * "news"'
+          default: null
+        to_date:
+          type:
+          - string
+          - 'null'
+          description: Only include results published on or before this date (ISO 8601, e.g. "2026-04-29")
+          default: null
+    Document:
+      type: object
+      description: Document
+      properties:
+        content:
+          type:
+          - string
+          - 'null'
+          description: Content of the document
+          default: null
+        published_date:
+          type:
+          - string
+          - 'null'
+          description: Publication date as ISO 8601 string (e.g. "2024-03-15T00:00:00Z")
+          default: null
+        url:
+          type:
+          - string
+          - 'null'
+          description: URL for web documents
+          default: null

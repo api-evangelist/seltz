@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Seltz answer API
+  description: 'REST API for the Seltz platform: context retrieval (`/v1/search`) and RAG answers (`/v1/answer`).'
+  contact:
+    name: Seltz API Support
+    url: https://seltz.ai/contact
+  license:
+    name: Seltz Terms of Use
+    url: https://seltz.ai/terms
+  version: 1.3.0
+servers:
+- url: https://api.seltz.ai
+  description: Seltz API
+tags:
+- name: answer
+  description: Answer operations
+paths:
+  /v1/answer:
+    post:
+      tags:
+      - answer
+      summary: Answer a query with RAG over search results
+      operationId: answer
+      parameters:
+      - name: x-api-key
+        in: header
+        description: 'Seltz API key: https://console.seltz.ai/api-keys'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerHttpRequest'
+            example:
+              query: Who is reported to be Apple's next CEO?
+        required: true
+      responses:
+        '200':
+          description: Answer for the query. When `stream = false` the body is a JSON `AnswerHttpResponse`; when `stream = true` it is a `text/event-stream` of OpenAI-style chunks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerHttpResponse'
+            text/event-stream: {}
+        '400':
+          description: Missing or malformed request fields.
+        '401':
+          description: Invalid or missing API key.
+        '404':
+          description: Endpoint not found.
+        '429':
+          description: Rate limit exceeded. Wait before retrying.
+        '500':
+          description: Unexpected server error.
+components:
+  schemas:
+    AnswerHttpResponse:
+      type: object
+      description: Buffered JSON response body for `POST /v1/answer`.
+      required:
+      - answer
+      - citations
+      properties:
+        answer:
+          type: string
+          description: 'Markdown answer text. Inline citations follow the form
+
+            `text ([Source Name](url))`.'
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/HttpCitation'
+          description: Citations referenced by the answer.
+    AnswerHttpRequest:
+      type: object
+      description: JSON request body for `POST /v1/answer`.
+      required:
+      - query
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: 'API key. Either this or the `x-api-key` header must be supplied;
+
+            the header takes precedence.'
+        include_content:
+          type: boolean
+          description: When true, citations carry the document content text. Default false.
+        model:
+          type:
+          - string
+          - 'null'
+          description: 'Optional tier selector (e.g. `seltz-base`). Selects the answer tier
+
+            (behavior + billing). Omitted or unrecognized → default tier (base),
+
+            no error. Orthogonal to `scope`; the response shape is unchanged.'
+        query:
+          type: string
+          description: The natural-language question.
+        scope:
+          type:
+          - string
+          - 'null'
+          description: 'Optional search scope. When set to a configured scope (e.g. `news`),
+
+            the grounding search runs against that scope''s planner. Omitted, empty,
+
+            or whitespace-only → default planner. Any non-empty value is forwarded
+
+            verbatim to the underlying search.'
+        stream:
+          type: boolean
+          description: When true, stream the answer as OpenAI-mimic SSE chunks. Default false.
+    HttpCitation:
+      type: object
+      description: HTTP-shape citation. Mirrors the `Citation` proto.
+      required:
+      - url
+      properties:
+        content:
+          type:
+          - string
+          - 'null'
+          description: Document content text (only when `include_content = true`).
+        url:
+          type: string
+          description: URL of the source document.
