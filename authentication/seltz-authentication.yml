@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.seltz.ai/quickstart
+docs: https://docs.seltz.ai/quickstart
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+- name: ApiKeyHeader
+  type: apiKey
+  in: header
+  parameter_name: x-api-key
+  description: >-
+    Seltz API key passed in the x-api-key request header. Generate keys in the
+    console at https://console.seltz.ai/api-keys. The REST /v1/search and
+    /v1/answer endpoints also accept the key in the JSON body as `api_key`, but
+    the x-api-key header takes precedence and is the recommended method.
+  sources: [openapi/seltz-openapi-original.json]
+- name: BearerToken
+  type: http
+  scheme: bearer
+  description: >-
+    The hosted MCP server (https://mcp.seltz.ai/mcp) authenticates with the same
+    API key passed as `Authorization: Bearer <SELTZ_API_KEY>`.
+  sources: [mcp/seltz-mcp.yml]
+notes: >-
+  The published OpenAPI (v1.3.0) models the API key as a required `x-api-key`
+  header parameter rather than a formal components.securitySchemes entry, so
+  the mechanical auth-derive script found no schemes; this profile is captured
+  from the documentation and spec parameters. No OAuth2/OIDC flows exist, so
+  there is no scopes artifact.

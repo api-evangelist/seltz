@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/seltz-openapi-original.json
+format: http-status
+envelope: >-
+  Errors are returned as HTTP status codes with a plain description. The
+  published OpenAPI does not define a structured problem schema
+  (application/problem+json), so remediation below is derived from the response
+  descriptions in the spec plus the documented auth guidance.
+problems:
+- status: 400
+  title: Bad Request
+  description: Missing or malformed request fields.
+  remediation: Ensure the JSON body includes a non-empty `query`; validate field types.
+  source_operations:
+  - openapi/seltz-openapi-original.json#search
+  - openapi/seltz-openapi-original.json#answer
+- status: 401
+  title: Unauthorized
+  description: Invalid or missing API key.
+  remediation: Supply a valid key in the `x-api-key` header (generate at https://console.seltz.ai/api-keys).
+  source_operations:
+  - openapi/seltz-openapi-original.json#search
+  - openapi/seltz-openapi-original.json#answer
+- status: 404
+  title: Not Found
+  description: Endpoint not found.
+  remediation: Check the request path against the base URL https://api.seltz.ai (/v1/search, /v1/answer, /v1/chat/completions).
+  source_operations:
+  - openapi/seltz-openapi-original.json#search
+  - openapi/seltz-openapi-original.json#answer
+- status: 429
+  title: Too Many Requests
+  description: Rate limit exceeded. Wait before retrying.
+  remediation: Back off and retry; upgrade plan for higher throughput.
+  source_operations:
+  - openapi/seltz-openapi-original.json#search
+  - openapi/seltz-openapi-original.json#answer
+- status: 500
+  title: Internal Server Error
+  description: Unexpected server error.
+  remediation: Retry with backoff; contact support@seltz.ai if it persists.
+  source_operations:
+  - openapi/seltz-openapi-original.json#search
+  - openapi/seltz-openapi-original.json#answer

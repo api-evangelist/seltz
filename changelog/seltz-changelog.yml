@@ -1,0 +1,57 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.seltz.ai/llms.txt
+docs: https://docs.seltz.ai/changelog
+scheme: dated
+current_version: '1.3.0'
+entries:
+- date: '2026-05'
+  title: OpenAI-Compatible Chat Completions
+  type: addition
+  highlights: Seltz serves an OpenAI-compatible POST /v1/chat/completions endpoint for web-grounded RAG.
+  url: https://docs.seltz.ai/changelog/2026-05-chat-completions
+- date: '2026-05'
+  title: Answer Endpoint
+  type: addition
+  highlights: Direct natural-language answers grounded in live web search, with citations.
+  url: https://docs.seltz.ai/changelog/2026-05-answer-endpoint
+- date: '2026-04'
+  title: n8n Community Node
+  type: addition
+  highlights: Seltz available as an n8n community node for workflow automation.
+  url: https://docs.seltz.ai/changelog/2026-04-n8n-node
+- date: '2026-03'
+  title: Langroid Integration
+  type: addition
+  highlights: Seltz available as a search provider in the Langroid multi-agent framework.
+  url: https://docs.seltz.ai/changelog/2026-03-langroid-integration
+- date: '2026-02'
+  title: LlamaIndex Integration
+  type: addition
+  highlights: Web search for LlamaIndex agents and RAG pipelines via SeltzToolSpec.
+  url: https://docs.seltz.ai/changelog/2026-02-llamaindex-integration
+- date: '2026-01'
+  title: TypeScript SDK
+  type: addition
+  highlights: First stable release of the official Seltz TypeScript SDK.
+  url: https://docs.seltz.ai/changelog/2026-01-typescript-sdk
+- date: '2026-01'
+  title: Dify Integration
+  type: addition
+  highlights: Add web search to Dify workflows with the Seltz plugin.
+  url: https://docs.seltz.ai/changelog/2026-01-dify-integration
+- date: '2026-01'
+  title: Agno Integration
+  type: addition
+  highlights: Build AI agents with Seltz search using the Agno framework.
+  url: https://docs.seltz.ai/changelog/2026-01-agno-integration
+- date: '2025-12'
+  title: Python SDK
+  type: addition
+  highlights: First stable release of the official Seltz Python SDK.
+  url: https://docs.seltz.ai/changelog/2025-12-python-sdk
+- date: '2025-12'
+  title: MCP Server
+  type: addition
+  highlights: Introduction of the official Seltz MCP server for AI-native integrations.
+  url: https://docs.seltz.ai/changelog/2025-12-mcp-server

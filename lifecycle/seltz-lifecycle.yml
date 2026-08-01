@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.seltz.ai
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: '1.3.0'
+  docs: https://docs.seltz.ai/api-reference/introduction
+changelog: https://docs.seltz.ai/changelog
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+  notes: Enterprise plans reference dedicated clusters and premium support; no public SLA document found.
+status_page: null
+deprecated_operations: []
+notes: >-
+  No public status page (status.seltz.ai not found) and no published deprecation
+  policy as of this pass, so no StatusPage or Deprecation pointers are emitted.
+  Versioning is a /v1 URI-path prefix; changes are tracked in the dated changelog.

@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/seltz-openapi-original.json
+skills:
+- file: seltz-web-search.md
+  name: Search the live web for agent context
+  api: openapi/seltz-openapi-original.json
+  operations: [search]
+- file: seltz-answer-with-citations.md
+  name: Get a cited answer grounded in live web search
+  api: openapi/seltz-openapi-original.json
+  operations: [answer]

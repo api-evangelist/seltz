@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: searched
+probe: false
+url: https://trust.seltz.ai/
+certifications_claimed:
+- SOC 2 (aligned)
+evidence:
+- source: https://seltz.ai
+  claim: 'enterprise security (SOC 2-aligned), full infrastructure ownership'
+- source: https://trust.seltz.ai/
+  claim: 'dedicated trust center (returns 403 to automated fetch; not machine-readable at probe time)'
+notes: >-
+  Seltz operates a trust center at https://trust.seltz.ai/ and describes its
+  security posture as SOC 2-aligned. The trust center blocks automated fetches
+  (HTTP 403), so certifications could not be machine-verified; "SOC 2 (aligned)"
+  is recorded as a provider claim, not a confirmed certification. BYOC private-
+  cloud deployment is offered for isolated infrastructure.

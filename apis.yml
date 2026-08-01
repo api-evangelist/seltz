@@ -1,22 +1,154 @@
 aid: seltz
 name: Seltz
-description: Seltz is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Seltz is a San Francisco-based AI infrastructure company building the web
+  retrieval and knowledge layer for the agentic internet. Its Web Knowledge API
+  gives LLMs, RAG pipelines, and autonomous agents real-time, context-engineered
+  web data through a single call: POST /v1/search returns ranked, cleaned source
+  documents, POST /v1/answer returns a direct RAG answer with citations, and an
+  OpenAI-compatible /v1/chat/completions endpoint serves web-grounded chat.
+  Rather than returning raw snippets like a traditional search API, Seltz shapes
+  web content to maximize usefulness for machine reasoning. Founded in 2025 by
+  Antonio Mallia (Amazon, Pinecone) and backed by Speedinvest and B Capital,
+  Seltz ships official Python and TypeScript SDKs, a hosted MCP server, and
+  integrations for OpenAI, Anthropic, Mistral, LlamaIndex, Agno, Langroid, Dify,
+  n8n, and Zapier.
 url: https://raw.githubusercontent.com/api-evangelist/seltz/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://seltz.ai/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
-x-tier: stub
-x-tier-reason: portfolio-lead
+- b-capital
+x-tier: profiled
+x-tier-reason: has-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Web Search
+- AI Infrastructure
+- Retrieval
+- RAG
+- Agents
+- LLM
+- Knowledge API
+- Developer Tools
+- MCP
+apis:
+- aid: seltz:seltz-answer-api
+  name: Seltz answer API
+  description: Answer operations
+  humanURL: https://docs.seltz.ai
+  baseURL: https://api.seltz.ai
+  tags:
+  - answer
+  properties:
+  - type: OpenAPI
+    url: openapi/seltz-answer-api-openapi.yml
+  - type: Documentation
+    url: https://docs.seltz.ai
+  - type: APIReference
+    url: https://docs.seltz.ai/api-reference/introduction
+  - type: Authentication
+    url: authentication/seltz-authentication.yml
+  - type: ErrorCatalog
+    url: errors/seltz-problem-types.yml
+  - type: Conventions
+    url: conventions/seltz-conventions.yml
+  - type: DataModel
+    url: data-model/seltz-data-model.yml
+- aid: seltz:seltz-search-api
+  name: Seltz search API
+  description: Search operations
+  humanURL: https://docs.seltz.ai
+  baseURL: https://api.seltz.ai
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/seltz-search-api-openapi.yml
+  - type: Documentation
+    url: https://docs.seltz.ai
+  - type: APIReference
+    url: https://docs.seltz.ai/api-reference/introduction
+  - type: Authentication
+    url: authentication/seltz-authentication.yml
+  - type: ErrorCatalog
+    url: errors/seltz-problem-types.yml
+  - type: Conventions
+    url: conventions/seltz-conventions.yml
+  - type: DataModel
+    url: data-model/seltz-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/seltz-domain-security.yml
+- type: DeveloperPortal
+  url: https://console.seltz.ai
+- type: Documentation
+  url: https://docs.seltz.ai
+- type: APIReference
+  url: https://docs.seltz.ai/api-reference/introduction
+- type: GettingStarted
+  url: https://docs.seltz.ai/quickstart
+- type: Sandbox
+  url: https://console.seltz.ai/playground
+- type: Pricing
+  url: https://seltz.ai/pricing
+- type: SignUp
+  url: https://console.seltz.ai
+- type: TermsOfService
+  url: https://seltz.ai/terms
+- type: PrivacyPolicy
+  url: https://seltz.ai/privacy-policy
+- type: Blog
+  url: https://seltz.ai/blog
+- type: Support
+  url: https://seltz.ai/contact
+- type: GitHubOrganization
+  url: https://github.com/seltz-ai
+- type: Packages
+  url: packages/seltz-packages.yml
+- type: SDKs
+  url: packages/seltz-packages.yml
+- type: MCPServer
+  url: mcp/seltz-mcp.yml
+- type: LLMsTxt
+  url: llms/seltz-llms.txt
+- type: WellKnown
+  url: well-known/seltz-well-known.yml
+- type: Conformance
+  url: conformance/seltz-conformance.yml
+- type: Compliance
+  url: https://trust.seltz.ai/
+- type: TrustCenter
+  url: security/seltz-trust-center.yml
+- type: Lifecycle
+  url: lifecycle/seltz-lifecycle.yml
+- type: ChangeLog
+  url: changelog/seltz-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1

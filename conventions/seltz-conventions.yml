@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.seltz.ai
+docs: https://docs.seltz.ai/quickstart
+authentication:
+  style: api-key-header
+  header: x-api-key
+  bearer_alt: 'Authorization: Bearer <key> (MCP server only)'
+  ref: authentication/seltz-authentication.yml
+base_url: https://api.seltz.ai
+version: v1 (uri-path prefix /v1)
+idempotency:
+  supported: false
+  notes: No idempotency-key header or contract is documented; requests are non-mutating read/search calls.
+pagination:
+  style: count-limited
+  params:
+  - max_results (search; default 10)
+  notes: >-
+    /v1/search returns up to `max_results` documents in a single response. No
+    cursor/offset pagination is documented; results can be narrowed with
+    include_domains, exclude_domains, from_date, to_date, and scope filters.
+filtering:
+  search:
+  - include_domains
+  - exclude_domains
+  - from_date
+  - to_date
+  - scope (e.g. "news")
+streaming:
+  supported: true
+  mechanism: >-
+    text/event-stream (OpenAI-style SSE chunks) when `stream=true` on /v1/answer
+    and the OpenAI-compatible /v1/chat/completions endpoint.
+error_envelope:
+  style: http-status
+  ref: errors/seltz-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  notes: A 429 status is returned when the rate limit is exceeded; no documented rate-limit headers.
+compatibility:
+  openai_chat_completions: >-
+    POST /v1/chat/completions is OpenAI-compatible (messages[], required `model`
+    field accepts any string, optional stream/response_format), with a top-level
+    `citations` Seltz extension and an `include_content` extension.
+cross_links:
+  errors: errors/seltz-problem-types.yml
+  lifecycle: lifecycle/seltz-lifecycle.yml
+  authentication: authentication/seltz-authentication.yml
+  data_model: data-model/seltz-data-model.yml

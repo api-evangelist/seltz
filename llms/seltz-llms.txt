@@ -1,0 +1,51 @@
+# Seltz
+
+## Docs
+
+- [Answer](https://docs.seltz.ai/api-reference/answer.md)
+- [Introduction](https://docs.seltz.ai/api-reference/introduction.md): The Seltz REST API for search and answers
+- [OpenAPI Specification](https://docs.seltz.ai/api-reference/openapi-spec.md): Generate clients from our OpenAPI specification.
+- [Search](https://docs.seltz.ai/api-reference/search.md)
+- [MCP Server](https://docs.seltz.ai/changelog/2025-12-mcp-server.md): Introduction of the official Seltz MCP server for AI-native integrations.
+- [Python SDK](https://docs.seltz.ai/changelog/2025-12-python-sdk.md): First stable release of the official Seltz Python SDK.
+- [Agno Integration](https://docs.seltz.ai/changelog/2026-01-agno-integration.md): Build AI agents with Seltz search capabilities using the Agno framework.
+- [Dify Integration](https://docs.seltz.ai/changelog/2026-01-dify-integration.md): Add web search capabilities to your Dify workflows with the Seltz plugin.
+- [TypeScript SDK](https://docs.seltz.ai/changelog/2026-01-typescript-sdk.md): First stable release of the official Seltz TypeScript SDK.
+- [LlamaIndex Integration](https://docs.seltz.ai/changelog/2026-02-llamaindex-integration.md): Add web search capabilities to your LlamaIndex agents and RAG pipelines.
+- [Langroid Integration](https://docs.seltz.ai/changelog/2026-03-langroid-integration.md): Seltz is now available as a search provider in the Langroid multi-agent framework.
+- [n8n Community Node](https://docs.seltz.ai/changelog/2026-04-n8n-node.md): Seltz is now available as an n8n community node for workflow automation.
+- [Answer Endpoint](https://docs.seltz.ai/changelog/2026-05-answer-endpoint.md): Get direct, natural-language answers grounded in live web search, with citations.
+- [OpenAI-Compatible Chat Completions](https://docs.seltz.ai/changelog/2026-05-chat-completions.md): Seltz now serves an OpenAI-compatible /v1/chat/completions endpoint for web-grounded RAG.
+- [Chat Completions](https://docs.seltz.ai/chat-completions.md): OpenAI-compatible chat completions for web-grounded RAG
+- [](https://docs.seltz.ai/index.md)
+- [Agno](https://docs.seltz.ai/integrations/agno.md): Build AI agents with Seltz search capabilities using the Agno framework.
+- [Anthropic Tool Calling](https://docs.seltz.ai/integrations/anthropic-tool-calling.md): Integrate Seltz search as a tool for Claude models using the Anthropic API.
+- [Dify](https://docs.seltz.ai/integrations/dify.md): Add web search capabilities to your Dify workflows with the Seltz plugin.
+- [Langroid](https://docs.seltz.ai/integrations/langroid.md): Add context-engineered web search to your Langroid agents with SeltzSearchTool.
+- [LlamaIndex](https://docs.seltz.ai/integrations/llamaindex.md): Add web search capabilities to your LlamaIndex agents and RAG pipelines with SeltzToolSpec.
+- [MCP Server](https://docs.seltz.ai/integrations/mcp.md): Use Seltz with Claude Desktop, Cursor, Windsurf, and other MCP-compatible AI tools.
+- [Mistral Tool Calling](https://docs.seltz.ai/integrations/mistral-tool-calling.md): Integrate Seltz search as a tool for Mistral models using the Mistral AI API.
+- [n8n](https://docs.seltz.ai/integrations/n8n.md): Use Seltz web search in n8n workflows with the Seltz community node.
+- [OpenAI Tool Calling](https://docs.seltz.ai/integrations/openai-tool-calling.md): Integrate Seltz search as a tool for OpenAI models using the Chat Completions API.
+- [viaSocket](https://docs.seltz.ai/integrations/viasocket.md): Use Seltz web search in viaSocket flows to automate your workflows.
+- [Zapier](https://docs.seltz.ai/integrations/zapier.md): Use Seltz web search in Zapier automations.
+- [Quickstart](https://docs.seltz.ai/quickstart.md): Make your first Seltz query in under 5 minutes
+- [Client Reference](https://docs.seltz.ai/sdks/javascript/client.md): Complete JavaScript/TypeScript SDK API reference.
+- [Examples](https://docs.seltz.ai/sdks/javascript/examples.md): Real-world JavaScript/TypeScript SDK usage patterns.
+- [Installation](https://docs.seltz.ai/sdks/javascript/installation.md): Install the Seltz JavaScript/TypeScript SDK.
+- [Quickstart](https://docs.seltz.ai/sdks/javascript/quickstart.md): Make your first Seltz search in JavaScript/TypeScript.
+- [Client Reference](https://docs.seltz.ai/sdks/python/client.md): Complete Python SDK API reference.
+- [Examples](https://docs.seltz.ai/sdks/python/examples.md): Real-world Python SDK usage patterns.
+- [Installation](https://docs.seltz.ai/sdks/python/installation.md): Install the Seltz Python SDK.
+- [Quickstart](https://docs.seltz.ai/sdks/python/quickstart.md): Make your first Seltz search in Python.
+- [cURL](https://docs.seltz.ai/sdks/rest/curl.md): Use the Seltz API with cURL.
+
+## OpenAPI Specs
+
+- [openapi](https://docs.seltz.ai/api-reference/openapi.json)
+
+## Optional
+
+- [Playground](https://console.seltz.ai/playground)
+- [About](https://seltz.ai/about)
+- [Book a Call](https://cal.com/antonio-mallia-c7uyfc/seltz-intro-call)

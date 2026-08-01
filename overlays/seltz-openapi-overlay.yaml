@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Seltz Web Knowledge API
+  version: 1.0.0
+extends: openapi/seltz-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: seltz
+    x-apievangelist-category:
+    - web-search
+    - retrieval
+    - rag
+    - agents
+    x-apievangelist-authentication: api-key (x-api-key header)
+    x-apievangelist-mcp-server: https://mcp.seltz.ai/mcp
+- target: $.info
+  description: >-
+    Note the OpenAI-compatible POST /v1/chat/completions endpoint is documented
+    at https://docs.seltz.ai/chat-completions but is not yet present in this
+    spec version (1.3.0). This overlay records it for discovery without
+    mutating the harvested original.
+  update:
+    x-apievangelist-undocumented-operations:
+    - path: /v1/chat/completions
+      method: post
+      summary: OpenAI-compatible web-grounded chat completions
+      docs: https://docs.seltz.ai/chat-completions
+- target: $.components.schemas.Document
+  update:
+    x-apievangelist-keyed-by: url

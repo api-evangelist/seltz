@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/seltz-openapi-original.json
+entities:
+- name: SearchRequest
+  description: Input to POST /v1/search.
+  fields: [query, max_results, include_domains, exclude_domains, from_date, to_date, scope, api_key]
+- name: SearchResponse
+  description: Output of POST /v1/search.
+  fields: [documents]
+- name: Document
+  description: A single ranked web source document.
+  fields: [content, url, published_date]
+- name: AnswerHttpRequest
+  description: Input to POST /v1/answer.
+  fields: [query, model, scope, stream, include_content, api_key]
+- name: AnswerHttpResponse
+  description: Output of POST /v1/answer (buffered mode).
+  fields: [answer, citations]
+- name: HttpCitation
+  description: A source citation attached to an answer. Mirrors the Citation proto.
+  fields: [url, content]
+relationships:
+- from: SearchResponse
+  to: Document
+  type: has_many
+  via: documents
+- from: AnswerHttpResponse
+  to: HttpCitation
+  type: has_many
+  via: citations
+notes: >-
+  Both Document and HttpCitation are keyed by source `url` (no opaque object
+  ids / id-prefixes in this API). Citations optionally carry `content` when
+  include_content=true, mirroring the Document content field.

@@ -1,0 +1,16 @@
+{
+  "provider": "seltz",
+  "sources": [
+    "seltz-answer-api-openapi.yml",
+    "seltz-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "seltz-answer-api-openapi.yml",
+    "seltz-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

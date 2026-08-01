@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: probed live hosts 2026-07-21
+hosts:
+- host: https://api.seltz.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://seltz.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+notes: >-
+  No /.well-known/ discovery documents are published on the API or website
+  hosts as of this probe. Absence is recorded as valid data. Seltz does
+  publish an llms.txt (see llms/seltz-llms.txt) and an OpenAPI spec at
+  https://docs.seltz.ai/api-reference/openapi.json.

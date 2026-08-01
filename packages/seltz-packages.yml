@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.seltz.ai
+packages:
+- language: python
+  registry: pypi
+  name: seltz
+  url: https://pypi.org/project/seltz/
+  install: pip install seltz
+  version: 1.5.0
+  repository: https://github.com/seltz-ai/seltz-python-sdk
+  summary: Seltz Python SDK for AI-powered search
+  official: true
+- language: javascript
+  registry: npm
+  name: seltz
+  url: https://www.npmjs.com/package/seltz
+  install: npm install seltz
+  version: 2.3.0
+  repository: https://github.com/seltz-ai/seltz-typescript-sdk
+  summary: Official TypeScript SDK for Seltz
+  official: true
+- language: javascript
+  registry: npm
+  name: n8n-nodes-seltz
+  url: https://www.npmjs.com/package/n8n-nodes-seltz
+  install: npm install n8n-nodes-seltz
+  version: 1.0.5
+  summary: n8n community node for Seltz - Web Knowledge API for AI agents
+  official: true

@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/seltz-openapi-original.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: Published OpenAPI 3.1.0 document at https://docs.seltz.ai/api-reference/openapi.json
+- id: rest
+  conforms: true
+  evidence: JSON over HTTPS, resource endpoints under /v1
+- id: openai-chat-completions-compat
+  conforms: true
+  evidence: POST /v1/chat/completions is OpenAI-compatible (messages[], model, stream, response_format)
+- id: model-context-protocol
+  conforms: true
+  evidence: Official hosted MCP server at https://mcp.seltz.ai/mcp (see mcp/seltz-mcp.yml)
+- id: llms-txt
+  conforms: true
+  evidence: Publishes https://docs.seltz.ai/llms.txt
+- id: oauth2
+  conforms: false
+  evidence: API-key (x-api-key header) auth only; no OAuth2 flows
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors returned as HTTP status codes; no application/problem+json schema
+- id: sse-streaming
+  conforms: true
+  evidence: text/event-stream OpenAI-style chunks on /v1/answer and /v1/chat/completions
+compliance:
+  claimed:
+  - framework: SOC 2
+    status: aligned
+    evidence: seltz.ai homepage states "enterprise security (SOC 2-aligned)"; trust center at https://trust.seltz.ai/
+  trust_center: https://trust.seltz.ai/
