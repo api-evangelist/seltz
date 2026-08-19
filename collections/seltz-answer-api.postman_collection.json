@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "3d959a9e-d4b3-407c-8d95-70b041a41df5",
+      "name": "answer",
+      "description": {
+        "content": "Answer operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4aae92d6-106d-48a3-8b84-171b2de0cf6d",
+          "name": "Answer a query with RAG over search results",
+          "request": {
+            "name": "Answer a query with RAG over search results",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "answer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"api_key\": \"<string,null>\",\n  \"include_content\": \"<boolean>\",\n  \"model\": \"<string,null>\",\n  \"scope\": \"<string,null>\",\n  \"stream\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1cede7e0-82b0-489c-848b-ad107e056112",
+              "name": "Answer for the query. When `stream = false` the body is a JSON `AnswerHttpResponse`; when `stream = true` it is a `text/event-stream` of OpenAI-style chunks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answer\": \"string\",\n  \"citations\": [\n    {\n      \"url\": \"string\",\n      \"content\": \"string\"\n    },\n    {\n      \"url\": \"string\",\n      \"content\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19dcdf4e-dd18-44e0-a61b-7f8a4d4ec842",
+              "name": "Missing or malformed request fields.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfc4cb28-3b60-485f-83aa-3f251800cb58",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0780d289-2494-41bc-9223-918e675e1d54",
+              "name": "Endpoint not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40ab51ca-1dc9-4ae7-b45e-ae6bcf844a43",
+              "name": "Rate limit exceeded. Wait before retrying.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd3189c8-c22d-4cf4-aa3f-edfc807e5186",
+              "name": "Unexpected server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "answer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"Who is reported to be Apple's next CEO?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.seltz.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c57d35a7-330d-445e-985c-ff9afe68204f",
+    "name": "Seltz answer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Seltz platform: context retrieval (`/v1/search`) and RAG answers (`/v1/answer`).\n\nContact Support:\n Name: Seltz API Support",
+      "type": "text/plain"
+    }
+  }
+}

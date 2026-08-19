@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Seltz answer API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "answer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Answer a query with RAG over search results",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.seltz.ai/v1/answer",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Answer a query with RAG over search results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

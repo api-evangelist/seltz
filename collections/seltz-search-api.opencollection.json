@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Seltz answer search API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search the web for relevant context",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.seltz.ai/v1/search",
+            "headers": [
+              {
+                "name": "x-api-key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search the web for relevant context"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -6,18 +6,16 @@ server:
   name: seltz
   transport: http
   url: https://mcp.seltz.ai/mcp
-  description: >-
-    Official Seltz MCP server. Native integration for Claude Desktop, Cursor,
-    VS Code, Windsurf, and other MCP-compatible AI tools. Remote HTTP/SSE server.
+  description: Official Seltz MCP server. Native integration for Claude Desktop, Cursor, VS Code, Windsurf,
+    and other MCP-compatible AI tools. Remote HTTP/SSE server.
   auth:
     type: bearer
     header: 'Authorization: Bearer <SELTZ_API_KEY>'
     api_keys_url: https://console.seltz.ai/api-keys
 tools:
 - name: search
-  description: >-
-    Search the live web through the Seltz Web Knowledge API and return ranked,
-    context-engineered source documents.
+  description: Search the live web through the Seltz Web Knowledge API and return ranked, context-engineered
+    source documents.
   parameters:
   - name: query
     required: true
@@ -29,3 +27,10 @@ tools:
 clients:
   claude_desktop: Settings -> Connectors -> Add custom connector -> name "Seltz", URL https://mcp.seltz.ai/mcp
   cursor: 'Configure .cursor/mcp.json with url https://mcp.seltz.ai/mcp and Authorization: Bearer <API_KEY>'
+deployment:
+  mode: remote
+  endpoint: https://mcp.seltz.ai/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "8ffbc0a6-11ac-4b91-b339-f1043f4f9022",
+      "name": "search",
+      "description": {
+        "content": "Search operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "097fb3b1-78e4-4b81-b8d5-486b178eb2fd",
+          "name": "Search the web for relevant context",
+          "request": {
+            "name": "Search the web for relevant context",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": null,\n  \"from_date\": null,\n  \"max_results\": null,\n  \"query\": \"\",\n  \"scope\": null,\n  \"to_date\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2b2d298-c1ab-4dc8-9c51-b73c49250623",
+              "name": "Search completed. Returns matched documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f317b7ab-0bf7-404c-bbc7-7cc88854222f",
+              "name": "Missing or malformed request fields.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be88d87e-2675-477f-93e3-3cf18199c256",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "538d222d-e876-424d-ab59-0481961737b3",
+              "name": "Endpoint not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b05a735-3f30-4ed0-9f98-8c46f69da5b3",
+              "name": "Rate limit exceeded. Wait before retrying.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07e3fc5a-b520-4d71-ad9e-a5242b9030b8",
+              "name": "Unexpected server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Seltz API key: https://console.seltz.ai/api-keys",
+                    "key": "x-api-key",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"How much is the fish?\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.seltz.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c6d57b17-78c5-4b9f-9357-eece0b271f5b",
+    "name": "Seltz answer search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Seltz platform: context retrieval (`/v1/search`) and RAG answers (`/v1/answer`).\n\nContact Support:\n Name: Seltz API Support",
+      "type": "text/plain"
+    }
+  }
+}
