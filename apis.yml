@@ -55,6 +55,8 @@ apis:
   humanURL: https://docs.seltz.ai
   baseURL: https://api.seltz.ai
   tags:
+  - Answers
+  tags_raw:
   - answer
   properties:
   - type: OpenAPI
@@ -77,6 +79,8 @@ apis:
   humanURL: https://docs.seltz.ai
   baseURL: https://api.seltz.ai
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
