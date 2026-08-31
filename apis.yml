@@ -67,7 +67,7 @@ apis:
   humanURL: https://docs.seltz.ai
   baseURL: https://api.seltz.ai
   tags:
-  - Answers
+  - answer
   tags_raw:
   - answer
   properties:
