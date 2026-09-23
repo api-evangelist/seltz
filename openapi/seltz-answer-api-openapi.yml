@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Seltz answer API
+  title: Seltz Answer API
   description: 'REST API for the Seltz platform: context retrieval (`/v1/search`) and RAG answers (`/v1/answer`).'
   contact:
     name: Seltz API Support
@@ -13,13 +13,13 @@ servers:
 - url: https://api.seltz.ai
   description: Seltz API
 tags:
-- name: answer
+- name: Answer
   description: Answer operations
 paths:
   /v1/answer:
     post:
       tags:
-      - answer
+      - Answer
       summary: Answer a query with RAG over search results
       operationId: answer
       parameters:
@@ -74,6 +74,20 @@ components:
           items:
             $ref: '#/components/schemas/HttpCitation'
           description: Citations referenced by the answer.
+    HttpCitation:
+      type: object
+      description: HTTP-shape citation. Mirrors the `Citation` proto.
+      required:
+      - url
+      properties:
+        content:
+          type:
+          - string
+          - 'null'
+          description: Document content text (only when `include_content = true`).
+        url:
+          type: string
+          description: URL of the source document.
     AnswerHttpRequest:
       type: object
       description: JSON request body for `POST /v1/answer`.
@@ -116,17 +130,3 @@ components:
         stream:
           type: boolean
           description: When true, stream the answer as OpenAI-mimic SSE chunks. Default false.
-    HttpCitation:
-      type: object
-      description: HTTP-shape citation. Mirrors the `Citation` proto.
-      required:
-      - url
-      properties:
-        content:
-          type:
-          - string
-          - 'null'
-          description: Document content text (only when `include_content = true`).
-        url:
-          type: string
-          description: URL of the source document.
