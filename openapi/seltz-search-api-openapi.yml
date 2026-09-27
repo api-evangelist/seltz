@@ -56,6 +56,28 @@ paths:
           description: Unexpected server error.
 components:
   schemas:
+    Document:
+      type: object
+      description: Document
+      properties:
+        content:
+          type:
+          - string
+          - 'null'
+          description: Content of the document
+          default: null
+        published_date:
+          type:
+          - string
+          - 'null'
+          description: Publication date as ISO 8601 string (e.g. "2024-03-15T00:00:00Z")
+          default: null
+        url:
+          type:
+          - string
+          - 'null'
+          description: URL for web documents
+          default: null
     SearchRequest:
       type: object
       description: Search request
@@ -124,25 +146,3 @@ components:
             $ref: '#/components/schemas/Document'
           description: Documents that are most relevant to the query
           default: []
-    Document:
-      type: object
-      description: Document
-      properties:
-        content:
-          type:
-          - string
-          - 'null'
-          description: Content of the document
-          default: null
-        published_date:
-          type:
-          - string
-          - 'null'
-          description: Publication date as ISO 8601 string (e.g. "2024-03-15T00:00:00Z")
-          default: null
-        url:
-          type:
-          - string
-          - 'null'
-          description: URL for web documents
-          default: null

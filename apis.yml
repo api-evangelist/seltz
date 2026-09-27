@@ -63,7 +63,7 @@ tags:
 - MCP
 apis:
 - aid: seltz:seltz-answer-api
-  name: Seltz answer API
+  name: Seltz Answer API
   description: Answer operations
   humanURL: https://docs.seltz.ai
   baseURL: https://api.seltz.ai
@@ -87,7 +87,7 @@ apis:
   - type: DataModel
     url: data-model/seltz-data-model.yml
 - aid: seltz:seltz-search-api
-  name: Seltz search API
+  name: Seltz Search API
   description: Search operations
   humanURL: https://docs.seltz.ai
   baseURL: https://api.seltz.ai
