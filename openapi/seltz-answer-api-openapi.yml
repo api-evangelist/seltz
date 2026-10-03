@@ -57,6 +57,37 @@ paths:
           description: Unexpected server error.
 components:
   schemas:
+    HttpCitation:
+      type: object
+      description: HTTP-shape citation. Mirrors the `Citation` proto.
+      required:
+      - url
+      properties:
+        content:
+          type:
+          - string
+          - 'null'
+          description: Document content text (only when `include_content = true`).
+        url:
+          type: string
+          description: URL of the source document.
+    AnswerHttpResponse:
+      type: object
+      description: Buffered JSON response body for `POST /v1/answer`.
+      required:
+      - answer
+      - citations
+      properties:
+        answer:
+          type: string
+          description: 'Markdown answer text. Inline citations follow the form
+
+            `text ([Source Name](url))`.'
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/HttpCitation'
+          description: Citations referenced by the answer.
     AnswerHttpRequest:
       type: object
       description: JSON request body for `POST /v1/answer`.
@@ -99,34 +130,3 @@ components:
         stream:
           type: boolean
           description: When true, stream the answer as OpenAI-mimic SSE chunks. Default false.
-    HttpCitation:
-      type: object
-      description: HTTP-shape citation. Mirrors the `Citation` proto.
-      required:
-      - url
-      properties:
-        content:
-          type:
-          - string
-          - 'null'
-          description: Document content text (only when `include_content = true`).
-        url:
-          type: string
-          description: URL of the source document.
-    AnswerHttpResponse:
-      type: object
-      description: Buffered JSON response body for `POST /v1/answer`.
-      required:
-      - answer
-      - citations
-      properties:
-        answer:
-          type: string
-          description: 'Markdown answer text. Inline citations follow the form
-
-            `text ([Source Name](url))`.'
-        citations:
-          type: array
-          items:
-            $ref: '#/components/schemas/HttpCitation'
-          description: Citations referenced by the answer.
