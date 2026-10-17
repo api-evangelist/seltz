@@ -56,6 +56,16 @@ paths:
           description: Unexpected server error.
 components:
   schemas:
+    SearchResponse:
+      type: object
+      description: Search response
+      properties:
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+          description: Documents that are most relevant to the query
+          default: []
     Document:
       type: object
       description: Document
@@ -78,16 +88,6 @@ components:
           - 'null'
           description: URL for web documents
           default: null
-    SearchResponse:
-      type: object
-      description: Search response
-      properties:
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-          description: Documents that are most relevant to the query
-          default: []
     SearchRequest:
       type: object
       description: Search request
